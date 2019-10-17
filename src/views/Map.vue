@@ -48,27 +48,7 @@ export default {
         zoom: 10 // starting zoom
     });
     var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
-    mapboxClient.geocoding.forwardGeocode({
-      query: 'Detroit, Michigan',
-      autocomplete: false,
-      limit: 1
-    })
-      .send()
-      .then(function (response) {
-      if (response && response.body && response.body.features && response.body.features.length) {
-        var feature = response.body.features[0];
-     
-        var map = new mapboxgl.Map({
-        container: 'map', // container id
-        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-        center: [-87.70, 41.94], // starting position [lng, lat]
-        zoom: 10 // starting zoom
-    });
-        new mapboxgl.Marker()
-          .setLngLat(feature.center)
-          .addTo(map);
-      }
-    });
+    
 
    
     // create the popup
